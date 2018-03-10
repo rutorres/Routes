@@ -42,10 +42,13 @@ class RoutesViewController: UITableViewController, XMLParserDelegate {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "routeCell", for: indexPath)
+        
         let route = routes[indexPath.row]
         
         cell.textLabel?.text = route.routeName
         cell.detailTextLabel?.text = route.routeColor
+        let imageName = UIImage(named: route.routeColor)
+        cell.imageView?.image = imageName
         
         return cell
     }
